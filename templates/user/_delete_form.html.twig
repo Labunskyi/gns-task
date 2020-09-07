@@ -1,0 +1,16 @@
+<form action="{{ url('user_delete', {id: user.id}) }}" method="post" data-confirmation="true" id="delete-form">
+    <input type="hidden" name="token" value="{{ csrf_token('delete') }}" />
+    <button type="submit" class="btn btn-danger" onclick="return confirm_delete()">
+        {{ 'delete'|trans }}
+    </button>
+</form>
+
+<script>
+	function confirm_delete() {
+		if (confirm("Are you shure to delete this item?")) {
+			return true;
+		} 
+		return false;
+	
+	}
+</script>
